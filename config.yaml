@@ -1,0 +1,135 @@
+# Central configuration. Every numeric parameter used by the pipeline lives here.
+
+seed: 20260311
+
+paths:
+  returns: data/raw/retornos_semanales.csv
+  processed: data/processed
+  tables: results/tables
+  figures: results/figures
+  docs: docs
+  r_scripts: r
+
+data:
+  date_column: Date
+  expected_spacing_days: 7
+  extreme_return_threshold: 0.25     # |log return| above this is flagged for review (not modified)
+  adf_regression: c                  # constant only in the ADF test
+  adf_autolag: AIC
+  # Builder-claim checks (Phase 0, item 8)
+  covid_window_start: "2020-02-21"   # weeks considered "March 2020 crash" for claim (a)
+  covid_window_end: "2020-04-03"
+  n_largest_drops: 10
+  claim_var_lags: 1
+  claim_alpha: 0.05
+
+# Ticker metadata. reference: true marks the global reference market (not emerging).
+metadata:
+  - {ticker: ARGT, country: Argentina,    region: Latin America, index: "MSCI All Argentina 25/50 (Solactive Argentina until Aug-2014)", reference: false}
+  - {ticker: ECH,  country: Chile,        region: Latin America, index: "MSCI Chile IMI 25/50", reference: false}
+  - {ticker: EWZ,  country: Brazil,       region: Latin America, index: "MSCI Brazil 25/50", reference: false}
+  - {ticker: EWW,  country: Mexico,       region: Latin America, index: "MSCI Mexico IMI 25/50", reference: false}
+  - {ticker: EPU,  country: Peru,         region: Latin America, index: "MSCI All Peru Capped", reference: false}
+  - {ticker: EWY,  country: South Korea,  region: Asia, index: "MSCI Korea 25/50", reference: false}
+  - {ticker: EWT,  country: Taiwan,       region: Asia, index: "MSCI Taiwan 25/50", reference: false}
+  - {ticker: EPI,  country: India,        region: Asia, index: "WisdomTree India Earnings Index", reference: false}
+  - {ticker: FXI,  country: China,        region: Asia, index: "FTSE China 50 (large caps)", reference: false}
+  - {ticker: THD,  country: Thailand,     region: Asia, index: "MSCI Thailand IMI 25/50", reference: false}
+  - {ticker: EIDO, country: Indonesia,    region: Asia, index: "MSCI Indonesia IMI 25/50", reference: false}
+  - {ticker: EWM,  country: Malaysia,     region: Asia, index: "MSCI Malaysia", reference: false}
+  - {ticker: VNM,  country: Vietnam,      region: Asia, index: "MarketVector Vietnam Local", reference: false}
+  - {ticker: EPHE, country: Philippines,  region: Asia, index: "MSCI Philippines IMI 25/50", reference: false}
+  - {ticker: EZA,  country: South Africa, region: EMEA, index: "MSCI South Africa 25/50", reference: false}
+  - {ticker: TUR,  country: Turkey,       region: EMEA, index: "MSCI Turkey IMI 25/50", reference: false}
+  - {ticker: EPOL, country: Poland,       region: EMEA, index: "MSCI Poland IMI 25/50", reference: false}
+  - {ticker: SPY,  country: United States, region: Global, index: "S&P 500", reference: true}
+
+regions_order: [Latin America, Asia, EMEA, Global]
+focus_ticker: ARGT
+
+rolling:
+  window: 104          # weeks
+  step: 1              # DY-only full-resolution run
+  compare_step: 4      # common step for the method comparison (all methods)
+  horizon: 4           # forecast horizon H in weeks
+
+dy:
+  max_lag: 2           # cap on p for OLS VAR (BIC selection)
+  lag_criterion: bic
+
+var_lasso:
+  max_lag: 4
+  selection: cv        # "cv" (TimeSeriesSplit) or "ebic"
+  cv_splits: 5
+  n_alphas: 40
+  alpha_min_ratio: 0.01
+  ebic_gamma: 0.5
+  max_iter: 10000
+  tol: 1.0e-4
+  standardize: true
+  link_threshold: 0.0  # coefficient magnitude above which a link counts as present
+
+nets:
+  lags: 1
+  lambda_grid_size: 10        # lambda chosen by BIC over a grid (see r/run_nets.R)
+  lambda_min_ratio: 0.05
+  algorithm: activeshooting
+  weights: adaptive
+  iter_in: 50
+  iter_out: 2
+
+fnets:
+  q_method: ic               # Hallin-Liska information criterion
+  ic_op: 5                   # IC variant used by fnets::factor.number when q_method = ic
+  fm_restricted: false       # unrestricted (generalized dynamic) factor model
+  var_order: 1
+  var_method: lasso
+  tuning: bic                # lambda selection for the idiosyncratic VAR (cv or bic)
+  n_folds: 1
+  path_length: 10
+  do_lrpc: true
+  do_threshold: true
+
+networks:
+  # Links in partial-correlation / coefficient matrices with |w| below this are treated as absent
+  # when computing densities and degrees.
+  link_threshold: 1.0e-8
+  # Share of strongest links used for the Jaccard similarity between methods
+  top_link_share: 0.10
+  # Pairwise GFEVD share above which a directed link counts as "present" in density
+  gfevd_link_threshold: null   # null -> use 1/N (the equal-share benchmark)
+
+compare:
+  methods: [dy, lasso, nets, fnets]
+
+robustness:
+  windows: [78, 130]
+  horizons: [2, 8]
+  exclude_ticker: SPY
+  exclude_year: 2020
+  subsamples:
+    - {name: "2011-2019", start: "2011-01-01", end: "2019-12-31"}
+    - {name: "2021-2026", start: "2021-01-01", end: "2026-12-31"}
+
+forecast:
+  enabled: false
+  scheme: rolling        # rolling or expanding
+  window: 104
+  ar_max_lag: 4
+  dm_horizon: 1
+
+runtime:
+  n_jobs: 4
+  r_timeout_seconds: 3600
+
+events:   # shaded in time-series plots
+  - {label: "Taper tantrum", start: "2013-05-22", end: "2013-09-30"}
+  - {label: "China devaluation", start: "2015-08-11", end: "2016-02-29"}
+  - {label: "Argentina PASO", start: "2019-08-09", end: "2019-09-30"}
+  - {label: "COVID-19", start: "2020-02-21", end: "2020-05-29"}
+  - {label: "Fed tightening", start: "2022-03-16", end: "2022-12-31"}
+
+figures:
+  dpi: 300
+  formats: [png, pdf]
+  style: seaborn-v0_8-whitegrid

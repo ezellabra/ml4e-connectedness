@@ -1,0 +1,36 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Generated data
+data/processed/
+
+# macOS
+.DS_Store
+
+# LaTeX auxiliary files
+paper/*.aux
+paper/**/*.aux
+paper/*.log
+paper/*.out
+paper/*.toc
+paper/*.bbl
+paper/*.blg
+paper/*.bcf
+paper/*.run.xml
+paper/*.fls
+paper/*.fdb_latexmk
+paper/*.synctex.gz
+paper/*.lof
+paper/*.lot
+paper/*.nav
+paper/*.snm
+
+# R temporary files
+.Rhistory
+.RData
+.Rproj.user/
+r/tmp/
+*.Rout
