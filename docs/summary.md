@@ -34,6 +34,7 @@
 ## Pending items (keep listing these until resolved)
 
 - **Argentina's role in the paper: TO BE DEFINED.** For now it is one case among the 17 markets (outlined in figures, discussed in Results as one country); whether it becomes the focus is open.
+- **One-page summary of the base paper (Diebold-Yilmaz 2014):** already written by a friend of the group; it will replace the stopgap text in `paper/sections/00_base_paper.tex` once the authors send it.
 - **The professor's papers on the idiosyncratic component:** the authors will send them; they go into the base-paper summary (`paper/sections/00_base_paper.tex`) and the bibliography.
 - **The team's database code and its conceptual note:** to be uploaded to the repository, together with a `.md` describing the line of thinking that led to it (requested from Marco). When it arrives: read it in detail and add the concept behind it to the paper (Data/Methods, and Results if applicable) without going through the implementation.
 - Discussion and Conclusion are the group's own work (course policy); Motivation, Introduction, final title, research question and hypotheses are still to be written/decided by the group.

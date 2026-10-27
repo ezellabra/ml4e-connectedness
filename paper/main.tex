@@ -7,6 +7,7 @@
 \usepackage{amsmath,amssymb}
 \usepackage{booktabs}
 \usepackage{graphicx}
+\usepackage{xcolor}
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage[round,authoryear]{natbib}
@@ -14,8 +15,8 @@
 
 \graphicspath{{../results/figures/}}
 \newcommand{\tablepath}{../results/tables}
-\newcommand{\todoinline}[1]{\textbf{[TODO (authors): #1]}}
-\newcommand{\todo}[1]{\par\noindent\fbox{\parbox{0.97\linewidth}{\textbf{TODO (authors):} #1}}\par}
+\newcommand{\todoinline}[1]{\textcolor{gray}{[#1]}}
+\newcommand{\todo}[1]{\par\noindent\textcolor{gray}{\small\emph{[To be completed: #1]}}\par}
 
 \title{Measuring Financial Connectedness among Emerging Equity Markets:\\
 Diebold--Yilmaz, NETS and FNETS Compared\thanks{Final project for \emph{Machine Learning for Economists} (Prof.\ Matteo Barigozzi), University of Bologna, 2026. Working title; final title to be decided by the authors.}}
