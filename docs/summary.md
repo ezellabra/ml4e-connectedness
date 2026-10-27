@@ -33,7 +33,7 @@
 
 ## What is missing
 
-- LaTeX could not be installed automatically (the BasicTeX cask needs administrator rights); the paper skeleton has not been compiled and the page count is not verified.
+- The paper skeleton compiles (`make paper`, TinyTeX) to 12 pages, mostly figures and tables; Results, Discussion, Conclusion, Motivation and Introduction are still placeholders, so the final length is open (budget 20).
 - Results, discussion, conclusion, motivation and introduction text (authors).
 - Exclusion reasons per ticker in `docs/data_notes.md` (authors).
 - Forecasting module not run (pending professor's confirmation).

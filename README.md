@@ -15,7 +15,7 @@ python3 -m venv .venv
 .venv/bin/python scripts/setup_latex.py  # checks/installs LaTeX and the packages used by paper/
 ```
 
-`scripts/setup_r.py` never reinstalls R; it installs R only if missing (Homebrew on macOS, apt/dnf on Linux; on Windows it prints instructions). `nets` is no longer on CRAN and is installed from the CRAN archive (version 0.9.1). `scripts/setup_latex.py` behaves the same way for LaTeX; on macOS the BasicTeX cask needs administrator rights, in which case it prints the command to run by hand.
+`scripts/setup_r.py` never reinstalls R; it installs R only if missing (Homebrew on macOS, apt/dnf on Linux; on Windows it prints instructions). `nets` is no longer on CRAN and is installed from the CRAN archive (version 0.9.1). `scripts/setup_latex.py` behaves the same way for LaTeX; on macOS the BasicTeX cask needs administrator rights, in which case it prints the command to run by hand; `--user-fallback` installs TinyTeX in `~/Library/TinyTeX` instead (no administrator rights; this is what was used to compile the paper).
 
 ## Running the pipeline
 

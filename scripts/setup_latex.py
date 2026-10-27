@@ -112,7 +112,10 @@ def install_packages(pkgs: list[str]) -> None:
         return
     tlmgr = shutil.which("tlmgr")
     needs_sudo = not os.access(tlmgr, os.W_OK) and str(Path.home()) not in tlmgr
-    cmd = (["sudo"] if needs_sudo else []) + ["tlmgr", "install"] + pkgs
+    prefix = ["sudo"] if needs_sudo else []
+    # an outdated tlmgr refuses to install packages, so update it first
+    subprocess.run(prefix + ["tlmgr", "update", "--self"], text=True, stdin=subprocess.DEVNULL)
+    cmd = prefix + ["tlmgr", "install"] + pkgs
     print("$ " + " ".join(cmd))
     res = subprocess.run(cmd, text=True, stdin=subprocess.DEVNULL)
     if res.returncode != 0:

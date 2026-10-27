@@ -27,6 +27,7 @@ paper/*.lof
 paper/*.lot
 paper/*.nav
 paper/*.snm
+paper/main.pdf
 
 # R temporary files
 .Rhistory

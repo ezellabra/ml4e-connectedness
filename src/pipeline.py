@@ -158,8 +158,8 @@ def write_latex_tables(cfg: dict, base: dict, rob_df: pd.DataFrame, static_df: p
                      f"{dens.loc[m, 'total']:.1f}",
                      f"{100 * dens.loc[m, 'density_granger']:.1f}",
                      f"{100 * dens.loc[m, 'density_lrpc']:.1f}",
-                     "--" if m == "dy" else f"{dy_agree[m][0]:.2f}",
-                     "--" if m == "dy" else f"{dy_agree[m][1]:.2f}",
+                     "--" if m == "dy" else f"{dy_agree[m][0] + 0.0:.2f}".replace("-0.00", "0.00"),
+                     "--" if m == "dy" else f"{dy_agree[m][1] + 0.0:.2f}".replace("-0.00", "0.00"),
                      f"{stab.loc[m, 'consecutive_spearman_gfevd']:.2f}",
                      f"{stab.loc[m, 'consecutive_jaccard_top_lrpc']:.2f}"])
     write_latex(tables / "comparison_criteria.tex",
@@ -175,7 +175,7 @@ def write_latex_tables(cfg: dict, base: dict, rob_df: pd.DataFrame, static_df: p
                 rrows, "lr" + "r" * (len(dens.index) + 2))
     srows = []
     for _, r in static_df.iterrows():
-        srows.append([r["sample"], names[r["method"]], f"{r['total']:.1f}", f"{100 * r['density_lrpc']:.1f}"])
+        srows.append(["Full sample" if r["sample"] == "full" else r["sample"], names[r["method"]], f"{r['total']:.1f}", f"{100 * r['density_lrpc']:.1f}"])
     write_latex(tables / "static_connectedness.tex", ["Sample", "Method", "Total conn. (\\%)", "LR p.corr. dens. (\\%)"],
                 srows, "llrr")
 
