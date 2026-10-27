@@ -1,0 +1,11 @@
+\section*{Summary of the Base Paper and of the Network Estimators}
+\addcontentsline{toc}{section}{Summary of the base paper}
+% Budget: 1 page (paper structure v2).
+
+\citet{diebold2014network} define connectedness through the $H$-step generalized forecast-error variance decomposition (GFEVD) of an approximating VAR. The share of the forecast-error variance of variable $i$ due to shocks in variable $j$ is read as a weighted, directed link $j\to i$; row sums of the off-diagonal entries give how much each node receives (``from''), column sums how much it transmits (``to''), and the cross-sectional average is total connectedness. Using the generalized decomposition of \citet{koop1996impulse} and \citet{pesaran1998generalized} makes the network invariant to the ordering of the variables. Rolling-window estimates track how connectedness changes over time.
+
+NETS \citep{barigozzi2019nets} estimates the network directly as a sparse object: a lasso-type estimator of a VAR delivers a \emph{Granger} network (lagged dependence), the sparse concentration matrix of the VAR innovations delivers a \emph{contemporaneous} partial-correlation network, and their combination delivers a \emph{long-run} partial-correlation network.
+
+FNETS \citep{barigozzi2024fnets} first removes a (possibly dynamic) common factor structure, estimated by dynamic principal components in a generalized dynamic factor model \citep{forni2000generalized}, and then estimates a sparse VAR and sparse (long-run) partial correlations for the idiosyncratic component. It therefore separates connectedness due to pervasive common shocks from idiosyncratic, network-type interdependence.
+
+\todo{Add the professor's papers on the idiosyncratic component (to be requested, see paper structure v2) and adjust this summary to the one-page budget.}

@@ -1,0 +1,49 @@
+\documentclass[11pt,a4paper]{article}
+% Page limit: 20 pages in total (course rule).
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[round,authoryear]{natbib}
+\usepackage[hidelinks]{hyperref}
+
+\graphicspath{{../results/figures/}}
+\newcommand{\tablepath}{../results/tables}
+\newcommand{\todo}[1]{\par\noindent\fbox{\parbox{0.97\linewidth}{\textbf{TODO (authors):} #1}}\par}
+
+\title{Measuring Financial Connectedness among Emerging Equity Markets:\\
+Diebold--Yilmaz, NETS and FNETS Compared\thanks{Final project for \emph{Machine Learning for Economists} (Prof.\ Matteo Barigozzi), University of Bologna, 2026. Working title; final title to be decided by the authors.}}
+\author{Marco Iacuzzi \and Agust\'in Lancelotti \and Bautista Alonso \and Ezequiel Llabra}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\clearpage
+
+\input{sections/00_base_paper}
+\input{sections/01_motivation}
+\input{sections/02_introduction}
+\input{sections/03_data}
+\input{sections/04_methods}
+\input{sections/05_results}
+\input{sections/06_discussion}
+\input{sections/07_conclusion}
+
+\section{References}
+\renewcommand{\refname}{}
+\vspace{-2em}
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\input{sections/09_availability}
+
+\appendix
+\input{sections/appendix}
+
+\end{document}
