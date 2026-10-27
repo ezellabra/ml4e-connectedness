@@ -1,0 +1,5 @@
+method,windows,failed_windows,sigma_projected_to_pd,windows_with_clipped_pcor,windows_with_clipped_lrpc,lags_selected
+dy,179,0,0,0,0,1
+lasso,179,0,0,0,0,
+nets,179,0,0,0,0,
+fnets,179,0,174,100,97,

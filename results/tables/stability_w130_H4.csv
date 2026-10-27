@@ -1,0 +1,5 @@
+method,sd_total,mean_abs_change_total,consecutive_spearman_gfevd,consecutive_jaccard_top_gfevd,consecutive_spearman_granger,consecutive_jaccard_top_granger,consecutive_spearman_pcor,consecutive_jaccard_top_pcor,consecutive_spearman_lrpc,consecutive_jaccard_top_lrpc
+dy,4.9412,0.5505,0.9817,0.7936,0.8769,0.6906,0.8965,0.7284,0.8796,0.6932
+lasso,5.4432,0.5723,0.9830,0.8180,0.2411,0.1334,0.9021,0.7295,0.8831,0.7105
+nets,10.7429,4.4261,0.9497,0.7913,0.6477,0.4686,0.9011,0.7871,0.8670,0.7719
+fnets,3.2006,1.9913,0.8386,0.5050,0.6605,0.0556,0.2552,0.1531,0.2577,0.1455

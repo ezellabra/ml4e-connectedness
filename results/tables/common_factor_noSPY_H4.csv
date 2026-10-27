@@ -1,0 +1,12 @@
+,value
+dy_total_mean,79.9817
+fnets_idio_total_mean,45.8590
+share_disappearing_mean,0.4241
+share_disappearing_median,0.4332
+share_disappearing_min,0.2434
+share_disappearing_max,0.5937
+common_variance_share_mean,0.5801
+corr_common_share_dy_total,0.9550
+q_mode,1.0000
+q_share_mode,1.0000
+nets_total_mean,59.8810
