@@ -36,3 +36,15 @@ Each entry states what was decided, why, and its origin tag:
 **D2.6 Window dating.** Each rolling estimate is dated at the last week of its window. [Base paper]
 
 **D2.7 Common evaluation grid.** For the comparison across methods, DY is also run with step 4 weeks (179 windows), the same grid used by NETS and FNETS (see D4.x). [Adaptation]
+
+## 3. Sparse VAR (`src/var_lasso.py`)
+
+**D3.1 Role.** A lasso-penalized VAR is the bridge between the dense DY VAR and the sparse NETS/FNETS estimators: same GFEVD and same connectedness measures as DY, only the estimator changes, so differences isolate the effect of regularization. [Course: lasso]
+
+**D3.2 Estimator.** Equation-by-equation lasso (scikit-learn coordinate descent) on all lags 1..p_max with p_max = 4; regressors standardized within each training sample, intercept unpenalized. The lasso itself performs lag selection, so no separate lag criterion is used. Cap p <= 4 (72 candidate regressors per equation for about 100 observations). [Course: lasso] [Adaptation]
+
+**D3.3 Choice of lambda.** Baseline: time-series cross-validation with `TimeSeriesSplit` (5 expanding folds, test blocks always after the training block), minimizing out-of-sample MSE over a log-spaced grid of 40 values from lambda_max to 0.01 lambda_max, chosen separately per equation. Random K-fold is never used because it leaks future information into the training set. Alternative: extended BIC (Chen and Chen, 2008) with gamma = 0.5. [Course]
+
+**D3.4 Residual covariance.** Sigma estimated from the lasso residuals, divided by the effective sample size. [Adaptation]
+
+**D3.5 Finding to keep in mind.** With 104-week windows, cross-validation shrinks almost all lag coefficients to zero (full sample: 0.6% non-zero with CV, 0% with eBIC). The lasso-VAR connectedness is then driven almost entirely by the contemporaneous covariance (for H steps with Psi_h close to zero, GFEVD reduces to normalized squared correlations). This is a substantive result, not a bug: weekly return predictability is weak relative to the estimation noise in short windows. [Adaptation]
