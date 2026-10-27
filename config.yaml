@@ -70,15 +70,19 @@ var_lasso:
   link_threshold: 0.0  # coefficient magnitude above which a link counts as present
 
 nets:
+  standardize: true   # scale each series to unit variance within the window
   lags: 1
-  lambda_grid_size: 10        # lambda chosen by BIC over a grid (see r/run_nets.R)
-  lambda_min_ratio: 0.05
+  # lambda chosen by BIC over a log-spaced grid lambda_max ... lambda_max * lambda_min_ratio
+  lambda_max: 100.0
+  lambda_min_ratio: 0.0005
+  lambda_grid_size: 15
   algorithm: activeshooting
   weights: adaptive
   iter_in: 50
   iter_out: 2
 
 fnets:
+  standardize: true   # needed for numerically stable (long-run) partial correlations
   q_method: ic               # Hallin-Liska information criterion
   ic_op: 5                   # IC variant used by fnets::factor.number when q_method = ic
   fm_restricted: false       # unrestricted (generalized dynamic) factor model
@@ -94,6 +98,10 @@ networks:
   # Links in partial-correlation / coefficient matrices with |w| below this are treated as absent
   # when computing densities and degrees.
   link_threshold: 1.0e-8
+  # Estimated covariance matrices that are not positive definite (FNETS idiosyncratic
+  # innovation covariance in short windows) are projected by clipping eigenvalues at
+  # pd_floor_ratio * mean |eigenvalue|.
+  pd_floor_ratio: 0.01
   # Share of strongest links used for the Jaccard similarity between methods
   top_link_share: 0.10
   # Pairwise GFEVD share above which a directed link counts as "present" in density
@@ -119,7 +127,7 @@ forecast:
   dm_horizon: 1
 
 runtime:
-  n_jobs: 4
+  n_jobs: 8
   r_timeout_seconds: 3600
 
 events:   # shaded in time-series plots
