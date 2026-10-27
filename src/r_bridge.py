@@ -14,11 +14,12 @@ from joblib import Parallel, delayed
 from .config import ROOT
 from .rolling import window_ends
 
-R_SCRIPTS = {"nets": "run_nets.R", "fnets": "run_fnets.R"}
+R_SCRIPTS = {"nets": "run_nets.R", "fnets": "run_fnets.R", "fnets_forecast": "run_fnets_forecast.R"}
 OUTPUTS = {
     "nets": {"A": "_A.csv", "sigma": "_sigma.csv", "pcor": "_pcor.csv", "lrpc": "_lrpc.csv"},
     "fnets": {"A": "_beta.csv", "sigma": "_gamma.csv", "pcor": "_pcor.csv", "lrpc": "_lrpc.csv",
               "var_x": "_var_x.csv", "var_common": "_var_common.csv", "var_idio": "_var_idio.csv"},
+    "fnets_forecast": {"forecast": "_forecast.csv"},
 }
 
 

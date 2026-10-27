@@ -125,6 +125,7 @@ forecast:
   window: 104
   ar_max_lag: 4
   dm_horizon: 1
+  fnets_fc_restricted: true   # forecast the common component with the restricted representation
 
 runtime:
   n_jobs: 8
