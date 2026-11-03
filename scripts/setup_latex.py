@@ -27,6 +27,8 @@ REQUIRED_STY = {
     "geometry": "geometry",
     "caption": "caption",
     "subcaption": "caption",
+    "placeins": "placeins",
+    "xcolor": "xcolor",
 }
 EXTRA_TLMGR = ["latexmk"]
 LINUX_APT = ["texlive-latex-extra", "texlive-fonts-recommended", "texlive-science", "latexmk", "biber"]

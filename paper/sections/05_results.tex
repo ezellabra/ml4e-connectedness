@@ -22,21 +22,21 @@ Table~\ref{tab:criteria} summarizes the three criteria.
 \subsection{Common factor versus idiosyncratic connectedness}
 FNETS selects one common factor in every window, which explains on average 58\% of the variance of the series. Total connectedness of the idiosyncratic VAR is 41\% lower than that of the DY VAR on average (median 42\%; between 26\% and 61\% across windows). The loss is stable across specifications (Table~\ref{tab:robustness}): 38\% with 78-week windows, 43\% with 130-week windows, 42\% without SPY and 41\% when windows that touch 2020 are removed, and it does not depend on the horizon. In the subsamples (Table~\ref{tab:static}), DY connectedness is 83.0\% in 2011--2019 and 73.5\% in 2021--2026, NETS falls from 69.6\% to 56.0\%, while idiosyncratic FNETS connectedness rises slightly (34.1\% to 39.6\%) as the common-factor variance share falls from 58\% to 47\%. A large part of the variation of DY connectedness over time is therefore variation in the weight of the common factor.
 
-\begin{figure}[ht]
+\begin{figure}[!t]
 \centering
 \includegraphics[width=\linewidth]{total_connectedness}
 \caption{Total connectedness over time by method (104-week rolling windows, $H=4$, step 4). Estimates are dated at the end of the window. Shaded areas mark events.}
 \label{fig:total}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[!t]
 \centering
 \includegraphics[width=\linewidth]{total_connectedness_overlay}
 \caption{Top: total connectedness of all methods on a common scale. Bottom: FNETS share of variance explained by the common component.}
 \label{fig:overlay}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[!t]
 \centering
 \begin{subfigure}{0.49\linewidth}\includegraphics[width=\linewidth]{heatmap_dy}\caption{DY}\end{subfigure}
 \begin{subfigure}{0.49\linewidth}\includegraphics[width=\linewidth]{heatmap_fnets}\caption{FNETS (idiosyncratic)}\end{subfigure}
@@ -44,21 +44,21 @@ FNETS selects one common factor in every window, which explains on average 58\% 
 \label{fig:heatmap}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[!t]
 \centering
 \includegraphics[width=\linewidth]{network_full_sample}
 \caption{Full-sample networks. Node colors denote regions; ARGT is outlined. Left: strongest 10\% of Diebold--Yilmaz links. Center: NETS long-run partial correlations. Right: FNETS idiosyncratic long-run partial correlations (no links in the full sample).}
 \label{fig:network}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[!t]
 \centering
 \includegraphics[width=\linewidth]{net_connectedness_by_country}
 \caption{Average net connectedness by country (transmitters $>0$, receivers $<0$), in percentage points. ARGT outlined.}
 \label{fig:net}
 \end{figure}
 
-\begin{table}[ht]
+\begin{table}[!t]
 \centering\scriptsize
 \caption{Comparison criteria across methods (179 windows, $w=104$, $H=4$). Densities in \%; agreement measured against DY; stability is the mean Spearman correlation (variance decomposition) and top-10\% Jaccard similarity (long-run partial correlations) between consecutive windows.}
 \label{tab:criteria}
