@@ -37,7 +37,6 @@
 - **Argentina's role (decision D2): to be confirmed after the group reads the paper.** Most likely one more country with no leading role, which is how the paper treats it now.
 - **Research question and hypotheses (D1):** drafted in the Introduction; kept as they are for now, the group may revise them. Title changed on 9 Nov to "Contagion or Common Factor? Measuring Connectedness among Emerging Equity Markets" (to be confirmed).
 - **Repository** (github.com/ezellabra/ML4E-code): make it public after force-pushing the cleaned history; the URL is already in Section 9.
-- **Discussion and Conclusion:** the group's own work (course policy).
 
 ## What is missing
 

@@ -13,7 +13,7 @@ This folder contains everything needed to read and review the paper.
 | `06_references_data_and_code_availability.pdf` | References and Data/Code availability |
 | `07_appendix_robustness.pdf` | Appendix: robustness tables and figure |
 
-A section PDF can start or end on a page shared with its neighbour, so a few lines of the adjacent section may appear at its edges. The page limit for the final version is 20; the paper currently has 15 pages.
+A section PDF can start or end on a page shared with its neighbour, so a few lines of the adjacent section may appear at its edges. The page limit for the final version is 20; the paper currently has 17 pages.
 
 ## What the paper is about, in five lines
 
@@ -36,7 +36,7 @@ Short glossary: *total connectedness* is the average share (in %) of a market's 
    - net transmitters and receivers (averages over windows): `series_base_H4.csv`, columns `net_*`
 
    Also check that each claim is worded no more strongly than the table supports, and that the figure captions describe what the figures show.
-5. **Discussion, Conclusion.** Still open; the evidence they should draw on is listed in `docs/summary.md`.
+5. **Discussion, Conclusion.** Check every number against the tables (58% common variance, 41% lost, 38-43% range, 0.95 correlation, 0.98 lasso correlation, Spearman 0.96-0.99 and 0.30, 58% to 47% common share), the rough calculation 0.47 x 0.42 = 20%, and that each interpretation is no stronger than the evidence.
 6. **References, Data and code availability.** Check the bibliography entries (`paper/references.bib`) and that the repository link (https://github.com/ezellabra/ML4E-code) works.
 7. **Appendix.** Check that the robustness tables match `results/tables/robustness_summary.csv` and `results/tables/static_connectedness.csv`.
 
