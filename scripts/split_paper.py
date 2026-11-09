@@ -36,7 +36,7 @@ def main() -> None:
         ("data", ["Data"]),
         ("methods", ["Methods"]),
         ("results", ["Results"]),
-        ("discussion_conclusion", ["Discussion", "Conclusion"]),
+        ("discussion_conclusion", ["Discussion", "Conclusion", "Statement on the use of AI tools"]),
         ("references_data_and_code_availability", ["References", "Data and Code Availability"]),
         ("appendix_robustness", ["Robustness"]),
     ]
