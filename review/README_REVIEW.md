@@ -13,7 +13,7 @@ This folder contains everything needed to read and review the paper.
 | `06_references_data_and_code_availability.pdf` | References and Data/Code availability |
 | `07_appendix_robustness.pdf` | Appendix: robustness tables and figure |
 
-A section PDF can start or end on a page shared with its neighbour, so a few lines of the adjacent section may appear at its edges. The page limit for the final version is 20; the paper currently has 16 pages.
+A section PDF can start or end on a page shared with its neighbour, so a few lines of the adjacent section may appear at its edges. The page limit for the final version is 20; the paper currently has 15 pages.
 
 ## What the paper is about, in five lines
 

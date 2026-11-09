@@ -11,6 +11,12 @@
 \usepackage{placeins}
 \usepackage{caption}
 \usepackage{subcaption}
+% Captions as in the base paper (Journal of Econometrics): about 80% of the body size,
+% regular type, bold label ("Table 1.", "Fig. 1.").
+\captionsetup{font=footnotesize,labelfont=bf,textfont=normalfont,labelsep=period,
+  justification=justified,singlelinecheck=false,skip=6pt}
+\captionsetup[figure]{name=Fig.}
+\captionsetup[subfigure]{font=footnotesize,labelfont=normalfont,labelsep=space}
 \usepackage[round,authoryear]{natbib}
 \usepackage[hidelinks]{hyperref}
 
