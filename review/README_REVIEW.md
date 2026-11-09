@@ -5,13 +5,19 @@ This folder contains everything needed to read and review the paper.
 | File | What it is |
 |---|---|
 | `00_full_paper.pdf` | The whole paper as it stands now |
-| `01_base_paper_summary_motivation_introduction.pdf` | Summary of the base paper, Motivation, Introduction |
-| `02_data.pdf` | Section 3, Data |
-| `03_methods.pdf` | Section 4, Methods |
-| `04_results.pdf` | Section 5, Results (text, figures and the comparison table) |
-| `05_discussion_conclusion.pdf` | Sections 6 and 7 |
-| `06_references_data_and_code_availability.pdf` | References and Data/Code availability |
-| `07_appendix_robustness.pdf` | Appendix: robustness tables and figure |
+| `00a_summary_of_the_base_paper.pdf` | Summary of the base paper (unnumbered) |
+| `01_motivation.pdf` | Section 1, Motivation |
+| `02_introduction.pdf` | Section 2, Introduction |
+| `03_data.pdf` | Section 3, Data |
+| `04_methods.pdf` | Section 4, Methods |
+| `05_results.pdf` | Section 5, Results (text, figures and the comparison table) |
+| `06_discussion.pdf` | Section 6, Discussion |
+| `07_conclusion_and_ai_statement.pdf` | Section 7, Conclusion, and the statement on the use of AI tools |
+| `08_references.pdf` | Section 8, References |
+| `09_data_and_code_availability.pdf` | Section 9, Data and Code Availability |
+| `A_appendix_robustness.pdf` | Appendix A, Robustness |
+
+File numbers follow the section numbers of the paper.
 
 A section PDF can start or end on a page shared with its neighbour, so a few lines of the adjacent section may appear at its edges. The page limit for the final version is 20; the paper currently has 18 pages.
 
