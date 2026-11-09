@@ -38,7 +38,7 @@
 - **Argentina's role (decision D2): TO BE DEFINED.** For now it is one case among the 17 markets (Motivation, Results, figures).
 - **SPY as reference node (decision D3):** kept in the baseline; confirmation from the group pending.
 - **Research question, hypotheses and title (D1, A8):** drafted in Introduction and on the cover; the group must confirm the final wording and title.
-- **Repository URL** for Section 9 (Data and code availability), once the repository is public.
+- **Repository** (github.com/ezellabra/ML4E-code): make it public after force-pushing the cleaned history; the URL is already in Section 9.
 - **Discussion and Conclusion:** the group's own work (course policy).
 
 ## What is missing
