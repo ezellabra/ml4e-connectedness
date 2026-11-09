@@ -13,7 +13,7 @@ This folder contains everything needed to read and review the paper.
 | `06_references_data_and_code_availability.pdf` | References and Data/Code availability |
 | `07_appendix_robustness.pdf` | Appendix: robustness tables and figure |
 
-A section PDF can start or end on a page shared with its neighbour, so a few lines of the adjacent section may appear at its edges. The page limit for the final version is 20; the paper currently has 17 pages.
+A section PDF can start or end on a page shared with its neighbour, so a few lines of the adjacent section may appear at its edges. The page limit for the final version is 20; the paper currently has 18 pages.
 
 ## What the paper is about, in five lines
 
@@ -23,7 +23,7 @@ Short glossary: *total connectedness* is the average share (in %) of a market's 
 
 ## What to check in each section
 
-1. **Summary of the base paper, Motivation, Introduction.** The summary of the base paper is a stand-in until the official one-page summary replaces it. Check that Motivation and Introduction state the question, hypotheses and results consistently with Section 5.
+1. **Summary of the base paper, Motivation, Introduction.** The summary of the base paper merges the group summary with the earlier draft; check it against the base paper. Check that Motivation and Introduction state the question, hypotheses and results consistently with Section 5.
 2. **Data.** Check the numbers against `results/tables/descriptive_stats.csv`, `results/tables/extreme_returns.csv` and `docs/data_notes.md`: 816 weeks, five returns above 25% in absolute value, 8 of the 10 largest pooled weekly drops in March 2020, 18.2% significant VAR coefficients (59 of 324). Check that the limitations listed are fair.
 3. **Methods.** Check the formulas and the parameters against `docs/decisions.md` (the reasoning behind every choice) and `config.yaml` (the values: window 104 weeks, horizon 4 weeks, lag cap 2 for DY and 4 for the lasso, five CV folds, and so on). Check that every method is described clearly enough to be reproduced.
 4. **Results.** Every number in the text should match a table in `results/tables/`:
