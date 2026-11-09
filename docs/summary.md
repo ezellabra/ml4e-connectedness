@@ -36,7 +36,7 @@
 - **Summary of the base paper:** done (9 Nov): merges Agustín Lancelotti's summary with the earlier draft; it runs about 1.5 pages against a 1-page budget.
 - **Argentina's role (D2): decided.** One more market, never presented as the focus; Argentine examples are used somewhat more often than other countries'.
 - **Research question and hypotheses (D1):** drafted in the Introduction; kept as they are. Title confirmed (9 Nov): "Contagion or Common Factor? Measuring Connectedness among Emerging Equity Markets".
-- **Repository** (github.com/ezellabra/ML4E-code): make it public after force-pushing the cleaned history; the URL is already in Section 9.
+- **Repository:** public at github.com/ezellabra/ml4e-connectedness (renamed 9 Nov); the URL is in Section 9.
 
 ## What is missing
 

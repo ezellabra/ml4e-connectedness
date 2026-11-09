@@ -37,7 +37,7 @@ Short glossary: *total connectedness* is the average share (in %) of a market's 
 
    Also check that each claim is worded no more strongly than the table supports, and that the figure captions describe what the figures show.
 5. **Discussion, Conclusion.** Check every number against the tables (58% common variance, 41% lost, 38-43% range, 0.95 correlation, 0.98 lasso correlation, Spearman 0.96-0.99 and 0.30, 58% to 47% common share), the rough calculation 0.47 x 0.42 = 20%, and that each interpretation is no stronger than the evidence.
-6. **References, Data and code availability.** Check the bibliography entries (`paper/references.bib`) and that the repository link (https://github.com/ezellabra/ML4E-code) works.
+6. **References, Data and code availability.** Check the bibliography entries (`paper/references.bib`) and that the repository link (https://github.com/ezellabra/ml4e-connectedness) works.
 7. **Appendix.** Check that the robustness tables match `results/tables/robustness_summary.csv` and `results/tables/static_connectedness.csv`.
 
 Passages in small gray italics ("To be completed: ...") are placeholders for work still in progress.
