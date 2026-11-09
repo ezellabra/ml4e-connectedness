@@ -4,22 +4,12 @@ This folder contains everything needed to read and review the paper.
 
 | File | What it is |
 |---|---|
-| `00_full_paper.pdf` | The whole paper as it stands now |
-| `00a_summary_of_the_base_paper.pdf` | Summary of the base paper (unnumbered) |
-| `01_motivation.pdf` | Section 1, Motivation |
-| `02_introduction.pdf` | Section 2, Introduction |
-| `03_data.pdf` | Section 3, Data |
-| `04_methods.pdf` | Section 4, Methods |
-| `05_results.pdf` | Section 5, Results (text, figures and the comparison table) |
-| `06_discussion.pdf` | Section 6, Discussion |
-| `07_conclusion_and_ai_statement.pdf` | Section 7, Conclusion, and the statement on the use of AI tools |
-| `08_references.pdf` | Section 8, References |
-| `09_data_and_code_availability.pdf` | Section 9, Data and Code Availability |
-| `A_appendix_robustness.pdf` | Appendix A, Robustness |
+| `paper_latex.pdf` | The whole paper as it stands now |
+| `paper_latex.zip` | The LaTeX source: `paper/main.tex`, the sections, the bibliography, and the figures and tables the paper uses. Unzip and run `latexmk -pdf main.tex` inside `paper/` to compile it |
 
-File numbers follow the section numbers of the paper.
+Both files are rebuilt with `make review` (which first compiles the paper). The zip is not tracked in git; ask for it or rebuild it.
 
-A section PDF can start or end on a page shared with its neighbour, so a few lines of the adjacent section may appear at its edges. The page limit for the final version is 20; the paper currently has 18 pages.
+The page limit for the final version is 20; the paper currently has 18 pages.
 
 ## What the paper is about, in five lines
 

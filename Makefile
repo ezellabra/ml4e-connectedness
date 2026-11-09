@@ -2,7 +2,7 @@ PYTHON ?= .venv/bin/python
 # TeX binaries: TinyTeX (user install) or MacTeX/BasicTeX
 export PATH := $(HOME)/Library/TinyTeX/bin/universal-darwin:/Library/TeX/texbin:$(PATH)
 
-.PHONY: all setup test data pipeline figures forecast paper clean
+.PHONY: all setup test data pipeline figures forecast paper review clean
 
 all: data pipeline figures forecast
 
@@ -29,6 +29,9 @@ forecast:
 
 paper:
 	cd paper && latexmk -pdf -interaction=nonstopmode main.tex
+
+review: paper
+	$(PYTHON) scripts/build_review.py
 
 clean:
 	rm -rf data/processed/*.pkl
