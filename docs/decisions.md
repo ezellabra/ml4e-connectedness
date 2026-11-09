@@ -19,7 +19,7 @@ Each entry states what was decided, why, and its origin tag:
 
 **D1.7 Known caveats.** FXI tracks the FTSE China 50 Index (50 large-cap Chinese companies listed in Hong Kong; verified on the iShares fund page); EPI tracks the earnings-weighted WisdomTree India Earnings Index (verified on StockAnalysis; the issuer page could not be accessed); Colombia is not in the sample; volatility connectedness is not studied. An earlier claim that ARGT changed its underlying index in August 2014 could not be verified on the fund's page and was removed from the paper. [Adaptation]
 
-**D1.8 SPY as global reference node.** SPY is part of the baseline system, as the global reference market. Robustness: rerun excluding SPY. [Course] (paper structure v2, decision 4)
+**D1.8 SPY as global reference node.** SPY is part of the baseline system, as the global reference market, so that shocks originating in the US are not attributed to transmission among emerging markets. Confirmed by the group (9 Nov). Robustness: rerun excluding SPY (results almost unchanged). [Course] (paper structure v2, decision 4)
 
 ## 2. Diebold-Yilmaz connectedness (`src/dy.py`)
 
