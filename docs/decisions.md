@@ -5,7 +5,7 @@ Each entry states what was decided, why, and its origin tag:
 
 ## 1. Data
 
-**D1.1 Weekly frequency.** Weekly Friday-to-Friday returns. Why: the professor indicated that at weekly frequency there is some forecastability that is absent at daily frequency; weekly data also mitigates non-synchronous trading between Asian/EMEA local markets and US-listed ETFs. [Course]
+**D1.1 Weekly frequency.** Weekly Friday-to-Friday returns. Why (group decision): weekly returns retain some cross-market predictability (see D1.5); weekly data also mitigates non-synchronous trading between Asian/EMEA local markets and US-listed ETFs. [Course]
 
 **D1.2 US-listed country ETFs in USD.** 17 emerging-market country ETFs plus SPY. Why: a homogeneous, tradable, USD-denominated proxy for each market with a long common history. Returns therefore include currency moves against the USD. [Adaptation]
 
@@ -13,11 +13,11 @@ Each entry states what was decided, why, and its origin tag:
 
 **D1.4 Sample.** 2011-03-11 to 2026-10-23, 816 weeks, no missing values. The start date is set by the youngest ETF in the universe. [Adaptation]
 
-**D1.5 Returns, not volatilities.** The base paper measures connectedness of (realized) volatilities. We use log returns because (i) the repository has no daily data, so realized weekly volatility cannot be built; (ii) the professor's emphasis is on forecastability at weekly frequency, which concerns returns; (iii) returns are not negligible as a source of cross-market predictive dependence: in a full-sample VAR(1) on the 18 series, 18.2% of the 324 slope coefficients are significant at 5% (59/324), against 5% expected by chance (reproduced, see `docs/data_notes.md`, claim (b)). Interpretation consequence: we measure transmission of return (level) shocks, not of risk. [Adaptation]
+**D1.5 Returns, not volatilities.** The base paper measures connectedness of (realized) volatilities. We choose log returns (group decision): (i) the question is about the transmission of return shocks across markets; (ii) weekly returns retain some cross-market predictability, which is what the VAR-based networks capture; realized-volatility connectedness from daily prices is left as an extension; (iii) returns are not negligible as a source of cross-market predictive dependence: in a full-sample VAR(1) on the 18 series, 18.2% of the 324 slope coefficients are significant at 5% (59/324), against 5% expected by chance (reproduced, see `docs/data_notes.md`, claim (b)). Interpretation consequence: we measure transmission of return (level) shocks, not of risk. [Adaptation]
 
 **D1.6 Data not cleaned of extremes.** Weekly |log returns| above 25% (5 cases: ARGT Aug-2019, four COVID-crash observations) are flagged for review but kept. They are genuine market moves. [Adaptation]
 
-**D1.7 Known caveats.** ARGT changed underlying index in Aug-2014; FXI covers only large-cap Chinese firms (FTSE China 50); EPI is the WisdomTree India (earnings-weighted) fund; Colombia is not in the sample; no daily data, so realized-volatility measures are not available. [Adaptation]
+**D1.7 Known caveats.** FXI tracks the FTSE China 50 Index (50 large-cap Chinese companies listed in Hong Kong; verified on the iShares fund page); EPI tracks the earnings-weighted WisdomTree India Earnings Index (verified on StockAnalysis; the issuer page could not be accessed); Colombia is not in the sample; volatility connectedness is not studied. An earlier claim that ARGT changed its underlying index in August 2014 could not be verified on the fund's page and was removed from the paper. [Adaptation]
 
 **D1.8 SPY as global reference node.** SPY is part of the baseline system, as the global reference market. Robustness: rerun excluding SPY. [Course] (paper structure v2, decision 4)
 
@@ -91,7 +91,7 @@ Each entry states what was decided, why, and its origin tag:
 
 **D6.2 Excluding 2020.** (a) Every rolling window that contains any week of 2020 is dropped (series set to missing; plots leave a visible gap and never connect across it); (b) static full-period connectedness estimated separately on 2011-2019 and 2021-2026. [Adaptation]
 
-**D6.3 Not possible.** Realized-volatility robustness (no daily data) and local-index robustness (no local index data in the repository). Recorded as limitations. [Adaptation]
+**D6.3 Not done.** Realized-volatility connectedness (left as an extension) and local-index robustness (no local index data in the repository). [Adaptation]
 
 ## 7. Out-of-sample forecasting (`src/forecast.py`, optional)
 

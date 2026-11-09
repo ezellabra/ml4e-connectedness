@@ -24,7 +24,7 @@
 
 ## Known limitations
 
-- Returns, not volatilities (no daily data); no realized-volatility robustness.
+- Returns, not volatilities (group decision); realized-volatility connectedness left as an extension.
 - ETF returns embed USD exchange-rate moves and non-synchronous trading.
 - FNETS with N = 18 and T = 104 is numerically fragile: the idiosyncratic covariance needed a positive-definite projection in 178/179 windows, partial correlations were clipped in about half of the windows, and the idiosyncratic connectedness series has tuning-driven drops (D4.8, D4.10).
 - NETS lambda is chosen by our BIC on a grid (the package does not select it); the BIC-chosen lambda switches between adjacent grid values, which makes NETS series jumpy.
@@ -33,11 +33,13 @@
 
 ## Pending items (keep listing these until resolved)
 
-- **Argentina's role in the paper: TO BE DEFINED.** For now it is one case among the 17 markets (outlined in figures, discussed in Results as one country); whether it becomes the focus is open.
-- **One-page summary of the base paper (Diebold-Yilmaz 2014):** already written by a friend of the group; it will replace the stopgap text in `paper/sections/00_base_paper.tex` once the authors send it.
-- **The professor's papers on the idiosyncratic component:** the authors will send them; they go into the base-paper summary (`paper/sections/00_base_paper.tex`) and the bibliography.
-- **The team's database code and its conceptual note:** to be uploaded to the repository, together with a `.md` describing the line of thinking that led to it (requested from Marco). When it arrives: read it in detail and add the concept behind it to the paper (Data/Methods, and Results if applicable) without going through the implementation.
-- Discussion and Conclusion are the group's own work (course policy); Motivation, Introduction, final title, research question and hypotheses are still to be written/decided by the group.
+- **Summary of the base paper:** Agustín Lancelotti wrote the one-page summary; it must replace the stopgap summary in `paper/sections/00_base_paper.tex` (written from the base paper PDF) once he sends it.
+- **The professor's papers on the idiosyncratic component:** to be requested/sent; they go into the base-paper summary and the bibliography.
+- **Argentina's role (decision D2): TO BE DEFINED.** For now it is one case among the 17 markets (Motivation, Results, figures).
+- **SPY as reference node (decision D3):** kept in the baseline; confirmation from the group pending.
+- **Research question, hypotheses and title (D1, A8):** drafted in Introduction and on the cover; the group must confirm the final wording and title.
+- **Repository URL** for Section 9 (Data and code availability), once the repository is public.
+- **Discussion and Conclusion:** the group's own work (course policy).
 
 ## What is missing
 

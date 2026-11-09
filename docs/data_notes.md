@@ -43,11 +43,11 @@ Machine-readable copy: `results/tables/extreme_returns.csv`. Descriptive statist
 
 ## Caveats
 
-- **ARGT** changed its underlying index in August 2014 (from the Solactive Argentina Index to the MSCI All Argentina 25/50 Index). Its pre- and post-2014 returns track slightly different baskets.
-- **FXI** tracks the FTSE China 50, i.e. only large-cap Chinese companies (heavy in financials and state-owned enterprises); it is not a broad China index.
-- **EPI** is the WisdomTree India Earnings fund (earnings-weighted), not an MSCI India tracker (INDA was excluded).
+- **ARGT** tracks the MSCI All Argentina 25/50 Index. A claimed index change in August 2014 could not be verified on the fund's official page and is not used.
+- **FXI** tracks the FTSE China 50 Index: 50 large-cap Chinese companies listed in Hong Kong (iShares fund page); it is not a broad China index.
+- **EPI** tracks the WisdomTree India Earnings Index, earnings-weighted (StockAnalysis; the WisdomTree page could not be accessed), not an MSCI India tracker (INDA was excluded).
 - **Colombia** is not in the sample (no Colombia ETF passed the selection criteria).
-- **No daily data** is available in the repository, so realized-volatility measures (as used by Diebold and Yilmaz, 2014) cannot be built. The analysis uses returns.
+- **Returns, not volatilities.** The base paper uses realized volatilities; this project studies weekly returns by choice. Realized-volatility connectedness is left as an extension.
 - ETF returns are US-market USD returns: they embed exchange-rate moves and are subject to non-synchronous trading with the local market (Asian markets close before the US open). Weekly frequency mitigates, but does not remove, this.
 
 ## Verification of data-builder claims

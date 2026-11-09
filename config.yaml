@@ -25,7 +25,7 @@ data:
 
 # Ticker metadata. reference: true marks the global reference market (not emerging).
 metadata:
-  - {ticker: ARGT, country: Argentina,    region: Latin America, index: "MSCI All Argentina 25/50 (Solactive Argentina until Aug-2014)", reference: false}
+  - {ticker: ARGT, country: Argentina,    region: Latin America, index: "MSCI All Argentina 25/50", reference: false}
   - {ticker: ECH,  country: Chile,        region: Latin America, index: "MSCI Chile IMI 25/50", reference: false}
   - {ticker: EWZ,  country: Brazil,       region: Latin America, index: "MSCI Brazil 25/50", reference: false}
   - {ticker: EWW,  country: Mexico,       region: Latin America, index: "MSCI Mexico IMI 25/50", reference: false}
