@@ -34,8 +34,7 @@
 ## Pending items (keep listing these until resolved)
 
 - **Summary of the base paper:** Agustín Lancelotti wrote the one-page summary; it must replace the stopgap summary in `paper/sections/00_base_paper.tex` (written from the base paper PDF) once he sends it.
-- **The professor's papers on the idiosyncratic component:** to be requested/sent; they go into the base-paper summary and the bibliography.
-- **Argentina's role (decision D2): TO BE DEFINED.** For now it is one case among the 17 markets (Motivation, Results, figures).
+- **Argentina's role (decision D2): to be confirmed after the group reads the paper.** Most likely one more country with no leading role, which is how the paper treats it now.
 - **SPY as reference node (decision D3):** kept in the baseline; confirmation from the group pending.
 - **Research question, hypotheses and title (D1, A8):** drafted in Introduction and on the cover; the group must confirm the final wording and title.
 - **Repository** (github.com/ezellabra/ML4E-code): make it public after force-pushing the cleaned history; the URL is already in Section 9.

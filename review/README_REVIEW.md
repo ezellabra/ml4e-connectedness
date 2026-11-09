@@ -37,7 +37,7 @@ Short glossary: *total connectedness* is the average share (in %) of a market's 
 
    Also check that each claim is worded no more strongly than the table supports, and that the figure captions describe what the figures show.
 5. **Discussion, Conclusion.** Still open; the evidence they should draw on is listed in `docs/summary.md`.
-6. **References, Data and code availability.** Check the bibliography entries (`paper/references.bib`). The professor's papers on the idiosyncratic component are still to be added; the repository link is still to be filled in.
+6. **References, Data and code availability.** Check the bibliography entries (`paper/references.bib`) and that the repository link (https://github.com/ezellabra/ML4E-code) works.
 7. **Appendix.** Check that the robustness tables match `results/tables/robustness_summary.csv` and `results/tables/static_connectedness.csv`.
 
 Passages in small gray italics ("To be completed: ...") are placeholders for work still in progress.
