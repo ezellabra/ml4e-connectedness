@@ -35,3 +35,6 @@ paper/main.pdf
 .Rproj.user/
 r/tmp/
 *.Rout
+
+# Internal planning documents (kept locally, not published)
+docs/Estructura*.pdf

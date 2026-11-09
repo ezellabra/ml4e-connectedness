@@ -1,6 +1,6 @@
 # Paper structure (summary of "Estructura del paper v2", 27 Oct 2026)
 
-Source: `docs/Estructura del paper v2 conectividad en mercados emergentes.pdf` (Spanish, by Marco). This is an English summary used as the reference for every later phase.
+Source: the internal planning document "Estructura del paper v2" (Spanish, by Marco; kept locally, not in the repository). This is an English summary used as the reference for every later phase.
 
 ## Constraints that do not change
 
