@@ -40,7 +40,13 @@ def main() -> None:
         ("references_data_and_code_availability", ["References", "Data and Code Availability"]),
         ("appendix_robustness", ["Robustness"]),
     ]
-    first_page = {title: page for _, title, page in sections}
+    # printed page numbers can differ from physical ones (the title page is unnumbered):
+    # locate the first section heading in the PDF text to get the offset
+    first_title = sections[0][1]
+    phys = next(i + 1 for i, pg in enumerate(reader.pages)
+                if first_title.lower() in (pg.extract_text() or "").lower())
+    offset = phys - sections[0][2]
+    first_page = {title: page + offset for _, title, page in sections}
     starts = [first_page[titles[0]] for _, titles in units]
     for i, (name, _) in enumerate(units):
         stop = starts[i + 1] if i + 1 < len(units) else n_pages
