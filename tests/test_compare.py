@@ -23,6 +23,8 @@ def fake_result(method, n_win=6, N=4, seed=0, scale=1.0):
         f = {"coefs": A[None], "sigma": S, **var_networks(A[None], S)}
         if method == "fnets":
             f["common_share"] = np.full(N, 0.6)
+            f["cov_common"] = 0.6 * np.ones((N, N))
+            f["var_idio"] = np.full(N, 0.4)
             f["q"] = 1
         fits.append(f)
         thetas.append(gfevd(A[None], S, 4))

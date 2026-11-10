@@ -142,3 +142,19 @@ figures:
   dpi: 300
   formats: [png, pdf]
   style: seaborn-v0_8-whitegrid
+
+# Additional robustness checks and bootstrap (src/extras.py)
+extras:
+  nets_fine_grid_size: 60       # NETS penalty grid, same range as the baseline 15-value grid
+  fnets_fixed_q: 2              # FNETS with the number of factors fixed (instead of the IC criterion)
+  q_case_tolerance: 5           # q-case 1: |lost2 - baseline lost| <= tolerance (points)
+  q_case_upper: 46              # q-case 2: lost2 > upper
+  q_case_lower: 36              # q-case 3: lost2 < lower
+  dy_reference_total: 81.0      # DY average total connectedness used in the benchmark ratio
+  bootstrap:
+    block_length: 8             # weeks, moving (overlapping) blocks
+    n_samples: 200              # use 100 if the run takes more than max_hours
+    max_hours: 3
+    seed: 42
+    batch_size: 16
+    ci: [2.5, 97.5]

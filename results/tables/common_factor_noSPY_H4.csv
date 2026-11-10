@@ -6,6 +6,8 @@ share_disappearing_median,0.4332
 share_disappearing_min,0.2434
 share_disappearing_max,0.5937
 common_variance_share_mean,0.5801
+is_mean,18.9831
+cb_mean,80.1539
 corr_common_share_dy_total,0.9550
 q_mode,1.0000
 q_share_mode,1.0000

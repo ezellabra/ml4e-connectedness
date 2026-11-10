@@ -1,11 +1,12 @@
 """Run the full pipeline: data checks, estimation and comparison, robustness, figures,
 optional forecasting. Usage: python run_all.py"""
-from src import data, figures, forecast, pipeline
+from src import data, extras, figures, forecast, pipeline
 
 
 def main() -> None:
     data.main()
     pipeline.main()
+    extras.main()
     figures.main()
     forecast.main()
 

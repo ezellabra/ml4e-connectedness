@@ -61,7 +61,8 @@ def run_static(name: str, returns: pd.DataFrame, H: int, cfg: dict, save_matrice
         c = connectedness(theta, res["labels"])
         row = {"sample": name, "method": m, "total": c["total"]}
         meas = compare.window_measures(res, H, cfg).iloc[0]
-        for k in ("density_gfevd", "density_granger", "density_pcor", "density_lrpc", "common_share", "q"):
+        for k in ("density_gfevd", "density_granger", "density_pcor", "density_lrpc", "common_share", "q",
+                  "is_mean", "cb"):
             if k in meas:
                 row[k] = meas[k]
         rows.append(row)
@@ -92,6 +93,8 @@ def robustness_row(scenario: str, s: dict) -> dict:
         row[f"stability_gfevd_{m}"] = stab.loc[m, "consecutive_spearman_gfevd"]
     row["fnets_share_disappearing"] = common["share_disappearing_mean"]
     row["fnets_common_share"] = common["common_variance_share_mean"]
+    row["fnets_is_mean"] = common["is_mean"]
+    row["fnets_cb_mean"] = common["cb_mean"]
     return row
 
 

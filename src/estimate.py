@@ -75,6 +75,8 @@ def _from_r(method: str, r: dict | None, cfg: dict) -> dict | None:
     if method == "fnets":
         out["common_share"] = r["var_common"] / r["var_x"]
         out["q"] = int(r["info"]["q"])
+        out["cov_common"] = r["cov_common"]
+        out["var_idio"] = r["var_idio"]
     return out
 
 
@@ -99,6 +101,8 @@ def _cache_key(method: str, returns: pd.DataFrame, ends: np.ndarray, window: int
     h.update(repr(cfg.get(method if method != "dy" else "dy", {})).encode())
     h.update(repr(cfg.get("var_lasso") if method == "lasso" else "").encode())
     h.update(repr(cfg["networks"]).encode())
+    if method == "fnets":
+        h.update(b"v2-cov_common")   # fits now also store the common-component covariance
     return h.hexdigest()[:16]
 
 
