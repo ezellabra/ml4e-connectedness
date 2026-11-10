@@ -13,6 +13,21 @@ from .networks import directed_measures, jaccard, spearman_offdiag, top_links, u
 NETWORKS = ("gfevd", "granger", "pcor", "lrpc")
 
 
+def pure_factor_total(cov_common: np.ndarray, var_idio: np.ndarray) -> float:
+    """Total connectedness (%) of the pure-factor benchmark: Sigma^B = cov(chi) + diag(var(xi)),
+    no lags, theta_ij = Sigma_ij^2 / (Sigma_ii Sigma_jj) normalized by row."""
+    S = (cov_common + cov_common.T) / 2 + np.diag(var_idio)
+    d = np.diag(S)
+    theta = S ** 2 / np.outer(d, d)
+    theta = theta / theta.sum(axis=1, keepdims=True)
+    return float(connectedness(theta)["total"])
+
+
+def idiosyncratic_spillover(common_share: np.ndarray, c_from: np.ndarray) -> float:
+    """Mean over series of IS_i = (1 - s_i) * C_from_i (idiosyncratic spillovers, % of total variance)."""
+    return float(np.mean((1.0 - np.asarray(common_share)) * np.asarray(c_from)))
+
+
 def _matrix(res: dict, k: int, net: str, H: int) -> np.ndarray | None:
     f = res["fits"][k]
     if f is None:
@@ -54,6 +69,8 @@ def window_measures(res: dict, H: int, cfg: dict, mask: np.ndarray | None = None
         if "common_share" in f:
             row["common_share"] = float(np.mean(f["common_share"]))
             row["q"] = f["q"]
+            row["is_mean"] = idiosyncratic_spillover(f["common_share"], c["from"])
+            row["cb"] = pure_factor_total(f["cov_common"], f["var_idio"])
         rows.append(row)
     return pd.DataFrame(rows)
 
@@ -134,6 +151,8 @@ def common_factor_table(measures: dict[str, pd.DataFrame]) -> pd.DataFrame:
         "share_disappearing_min": float(1 - ratio.max()),
         "share_disappearing_max": float(1 - ratio.min()),
         "common_variance_share_mean": fn["common_share"].mean(),
+        "is_mean": fn["is_mean"].mean(),
+        "cb_mean": fn["cb"].mean(),
         "corr_common_share_dy_total": fn["common_share"].corr(dy["total"]),
         "q_mode": fn["q"].mode().iloc[0] if fn["q"].notna().any() else np.nan,
         "q_share_mode": float((fn["q"] == fn["q"].mode().iloc[0]).mean()) if fn["q"].notna().any() else np.nan,

@@ -6,6 +6,7 @@
 #   _pcor.csv          idiosyncratic contemporaneous partial-correlation network
 #   _lrpc.csv          idiosyncratic long-run partial-correlation network
 #   _var_x.csv, _var_common.csv, _var_idio.csv   lag-0 variances of data, common and idiosyncratic parts
+#   _cov_common.csv    lag-0 covariance matrix of the common component (pure-factor benchmark)
 # Each window is standardized (mean 0, variance 1) when params$standardize is true.
 #   _info.csv          number of factors q, factor criterion values, lambda, eta
 suppressMessages(library(fnets))
@@ -30,6 +31,7 @@ fit_one <- function(x, params, prefix) {
   write_mat(diag(fn$acv$Gamma_x[, , 1]), paste0(prefix, "_var_x.csv"))
   write_mat(diag(fn$acv$Gamma_c[, , 1]), paste0(prefix, "_var_common.csv"))
   write_mat(diag(fn$acv$Gamma_i[, , 1]), paste0(prefix, "_var_idio.csv"))
+  write_mat(fn$acv$Gamma_c[, , 1], paste0(prefix, "_cov_common.csv"))   # lag-0 covariance of the common component
   write.csv(data.frame(q = fn$q, q_method = params$q_method, ic_op = params$ic_op,
                        lambda = fn$idio.var$lambda, eta = fn$lrpc$eta, var_order = p),
             paste0(prefix, "_info.csv"), row.names = FALSE)

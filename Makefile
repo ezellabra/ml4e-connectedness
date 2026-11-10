@@ -2,9 +2,9 @@ PYTHON ?= .venv/bin/python
 # TeX binaries: TinyTeX (user install) or MacTeX/BasicTeX
 export PATH := $(HOME)/Library/TinyTeX/bin/universal-darwin:/Library/TeX/texbin:$(PATH)
 
-.PHONY: all setup test data pipeline figures forecast paper review clean
+.PHONY: all setup test data pipeline extras figures forecast paper review clean
 
-all: data pipeline figures forecast
+all: data pipeline extras figures forecast
 
 setup:
 	python3 -m venv .venv
@@ -20,6 +20,9 @@ data:
 
 pipeline:
 	$(PYTHON) -m src.pipeline
+
+extras:
+	$(PYTHON) -m src.extras
 
 figures:
 	$(PYTHON) -m src.figures

@@ -18,7 +18,7 @@ from matplotlib.patches import Patch
 from .config import load_config, metadata_frame, path
 from .tables import write_latex
 
-METHOD_NAMES = {"dy": "Diebold-Yilmaz (OLS VAR)", "lasso": "Sparse VAR (lasso)",
+METHOD_NAMES = {"dy": "Diebold–Yılmaz (OLS VAR)", "lasso": "Sparse VAR (lasso)",
                 "nets": "NETS", "fnets": "FNETS (idiosyncratic)"}
 METHOD_STYLE = {"dy": ("#2a78d6", "-"), "lasso": ("#eb6834", "--"),
                 "nets": ("#1baf7a", "-."), "fnets": ("#008300", ":")}
@@ -94,10 +94,11 @@ def fig_overlay_total(cfg: dict) -> None:
         d = s[s["method"] == m]
         c, ls = METHOD_STYLE[m]
         ax.plot(d["date"], d["total"], color=c, ls=ls, label=METHOD_NAMES[m])
+    f = s[s["method"] == "fnets"]
+    ax.plot(f["date"], f["cb"], color="black", ls="--", label="Pure-factor benchmark (no links)")
     shade_events(ax, cfg, label=True)
     ax.set_ylabel("Total connectedness (%)")
     ax.legend(frameon=False, ncol=2, loc="lower left")
-    f = s[s["method"] == "fnets"]
     ax2.plot(f["date"], 100 * f["common_share"], color=INK, lw=1.2)
     shade_events(ax2, cfg, label=False)
     ax2.set_ylabel("Common share (%)")

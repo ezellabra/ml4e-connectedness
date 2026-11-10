@@ -1,0 +1,15 @@
+\begin{tabular}{lrrrrrrrrr}
+\toprule
+Scenario & Windows & DY & Lasso VAR & NETS & FNETS (idio.) & Lost w/o factor (\%) & Common var. (\%) & Idio. spill. (\% total var.) & Pure-factor bench. (\%) \\
+\midrule
+Baseline (w=104, H=4) & 179 & 81.0 & 80.0 & 61.5 & 47.2 & 41 & 58 & 19.6 & 81.1 \\
+H=2 & 179 & 80.9 & 80.0 & 61.5 & 47.2 & 41 & 58 & 19.6 & 81.1 \\
+H=8 & 179 & 81.0 & 80.1 & 61.5 & 47.2 & 41 & 58 & 19.6 & 81.1 \\
+w=78 & 185 & 81.2 & 79.6 & 57.8 & 50.5 & 38 & 58 & 21.0 & 80.6 \\
+w=130 & 172 & 81.1 & 80.5 & 63.4 & 46.2 & 43 & 58 & 19.3 & 81.6 \\
+Excluding SPY & 179 & 80.0 & 78.9 & 59.9 & 45.9 & 42 & 58 & 19.0 & 80.2 \\
+Excluding windows touching 2020 & 141 & 79.7 & 78.6 & 58.8 & 47.2 & 41 & 55 & 20.8 & 79.7 \\
+NETS, 60-value grid & 179 & 81.0 & 80.0 & 61.4 & 47.2 & 41 & 58 & 19.6 & 81.1 \\
+FNETS, q = 2 (fixed) & 179 & 81.0 & 80.0 & 61.5 & 38.6 & 52 & 69 & 11.7 & 81.0 \\
+\bottomrule
+\end{tabular}
